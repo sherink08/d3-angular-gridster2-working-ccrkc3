@@ -1,0 +1,19 @@
+<svg:g class="axis x"
+  [attr.transform]="'translate(0,'+height+')'"
+  [attr.font-size]="10"
+  fill="none"
+  font-family="sans-serif"
+  text-anchor="middle">
+  <!-- Generate axis path -->
+  <svg:path class="domain"
+    stroke="black"
+    [attr.d]="path"></svg:path>
+  <!-- Generate ticks -->
+  <svg:g *ngFor="let d of data"
+    class="tick"
+    [attr.opacity]="1"
+    [attr.transform]="'translate('+d.offset+',0)'">
+    <svg:line stroke="black" y2="6"></svg:line>
+    <svg:text fill="black" y="9" dy="0.71em">{{ d.label }}</svg:text>
+  </svg:g>
+</svg:g>
